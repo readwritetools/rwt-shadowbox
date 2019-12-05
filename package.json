@@ -1,55 +1,30 @@
 {
-  "_from": "git+ssh://root@nk024:/keep/rwt-shadowbox#master",
-  "_id": "rwt-shadowbox@1.0.2",
-  "_inBundle": false,
-  "_integrity": "",
-  "_location": "/rwt-shadowbox",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "git",
-    "raw": "git+ssh://root@nk024:/keep/rwt-shadowbox#master",
-    "rawSpec": "git+ssh://root@nk024:/keep/rwt-shadowbox#master",
-    "saveSpec": "git+ssh://root@nk024:/keep/rwt-shadowbox#master",
-    "fetchSpec": "root@nk024:/keep/rwt-shadowbox",
-    "gitCommittish": "master"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "git+ssh://root@nk024:/keep/rwt-shadowbox#f88afce9661122775a542206b7a647c035aea406",
-  "_spec": "git+ssh://root@nk024:/keep/rwt-shadowbox#master",
-  "_where": "C:\\palau\\webcomponents\\test\\public",
-  "author": {
-    "name": "Read Write Tools"
-  },
-  "bugs": {
-    "url": "https://github.com/readwritetools/rwt-shadowbox/issues"
-  },
-  "bundleDependencies": false,
-  "deprecated": false,
+  "name": "rwt-shadowbox",
   "description": "Popup box with titlebar and slotted contents, a W3C standard Web Component",
-  "files": [
-    "rwt-shadowbox.blue",
-    "rwt-shadowbox.css",
-    "rwt-shadowbox.js"
-  ],
-  "homepage": "https://oss.readwritetools.com/web-components/rwt-shadowbox.blue",
+  "version": "1.0.3",
+  "author": "Read Write Tools",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "bump-version": "npm version patch && git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/readwritetools/rwt-shadowbox.git"
+  },
   "keywords": [
     "web-component",
     "custom-element",
     "html-template",
     "shadow-dom"
   ],
-  "license": "MIT",
-  "name": "rwt-shadowbox",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/readwritetools/rwt-shadowbox.git"
+  "bugs": {
+    "url": "https://github.com/readwritetools/rwt-shadowbox/issues"
   },
-  "scripts": {
-    "bump-version": "npm version patch && git push && git push --tags"
-  },
-  "version": "1.0.3"
+  "homepage": "https://oss.readwritetools.com/web-components/rwt-shadowbox.blue",
+  "files": [
+    "rwt-shadowbox.blue",
+    "rwt-shadowbox.css",
+    "rwt-shadowbox.js"
+  ]
 }
