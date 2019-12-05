@@ -18,6 +18,7 @@ export default class RwtShadowbox extends HTMLElement {
 		this.dialog = null;
 		this.caption = null
 		this.closeButton = null;
+		this.shortcutKey = null;
 		
 		Object.seal(this);
 	}
@@ -44,10 +45,9 @@ export default class RwtShadowbox extends HTMLElement {
 		this.shadowRoot.appendChild(styleElement); 
 		
 		this.identifyChildren();
-		
 		this.registerEventListeners();
-		
 		this.initializeCaption();
+		this.initializeShortcutKey();
 	}
 
 	//-------------------------------------------------------------------------
@@ -111,7 +111,15 @@ export default class RwtShadowbox extends HTMLElement {
 			this.caption.innerText = "Shadowbox";
 		}
 	}
-
+	
+	/// Get the user-specified shortcut key. This will be used to open the dialog.
+	// Valid values are "F1", "F2", etc.
+	initializeShortcutKey() {
+		if (this.hasAttribute('shortcut')) {
+			this.shortcutKey = this.getAttribute('shortcut');
+		}
+	}
+	
 	//-------------------------------------------------------------------------
 	// document events
 	//-------------------------------------------------------------------------
@@ -128,9 +136,11 @@ export default class RwtShadowbox extends HTMLElement {
 			this.hideDialog();
 			event.stopPropagation();
 		}
-		if (event.key == "F2") {
+		// like "F1", 'F2", etc
+		if (event.key == this.shortcutKey) {
 			this.toggleDialog();
 			event.stopPropagation();
+			event.preventDefault();
 		}
 	}
 

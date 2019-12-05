@@ -12,10 +12,12 @@
 
 !option --fragment
 
-div#shadowbox-dialog ^display:none {
+div #shadowbox-dialog ^display:none {
 	div #caption-bar {
-		p#caption Favorites
-		button#close-button X
+		p #caption Favorites
+		button #close-button ✕
 	}
-	slot
+	div #outer-margin {
+		slot
+	}
 }

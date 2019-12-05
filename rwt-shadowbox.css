@@ -82,26 +82,30 @@
 
 #close-button {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 0.8rem;
-	font-weight: bold;
+	font-size: 0.9rem;
 	text-align: center;
 	display: inline-block;
-	padding: 0.15rem 0.75rem;
+	padding: 0rem 0.5rem;
 	color: var(--color);
 	background-color: var(--accent-background2);
 	border-style: solid;
 	border-width: 1px;
 	border-color: var(--accent-background1);
-	cursor: pointer;
 }
 
 #close-button:hover,
 #close-button:visited:hover {
-	color: var(--accent-color1);
-	background-color: var(--accent-background3);
+	color: #fff; /*var(--accent-color1);*/
+	background-color: #ff3d3d; /*var(--accent-background3);*/
 	border: 1px solid var(--accent-background2);
 }
 
-::slotted(*) {
-	padding: 2rem;
+#outer-margin {
+	position: absolute;
+    top: var(--caption-bar-height);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+	overflow: auto;
 }
