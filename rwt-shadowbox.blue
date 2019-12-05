@@ -1,0 +1,21 @@
+!blue 2.0
+//=============================================================================
+//
+//  File:         /node_modules/rwt-shadowbox/rwt-favorites.blue
+//  Language:     Blue-phrase
+//  Copyright:    Read Write Tools © 2019
+//  License:      MIT
+//  Initial date: Dec 4, 2019
+//  Contents:     Popup box with titlebar and slotted contents
+//
+//=============================================================================
+
+!option --fragment
+
+div#shadowbox-dialog ^display:none {
+	div #caption-bar {
+		p#caption Favorites
+		button#close-button X
+	}
+	slot
+}

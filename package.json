@@ -1,0 +1,30 @@
+{
+  "name": "rwt-shadowbox",
+  "description": "Popup box with titlebar and slotted contents, a W3C standard Web Component",
+  "version": "1.0.0",
+  "author": "Read Write Tools",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "bump-version": "npm version patch && git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/readwritetools/rwt-shadowbox.git"
+  },
+  "keywords": [
+    "web-component",
+    "custom-element",
+    "html-template",
+    "shadow-dom"
+  ],
+  "bugs": {
+    "url": "https://github.com/readwritetools/rwt-shadowbox/issues"
+  },
+  "homepage": "https://oss.readwritetools.com/web-components/rwt-shadowbox.blue",
+  "files": [
+    "rwt-shadowbox.blue",
+    "rwt-shadowbox.css",
+    "rwt-shadowbox.js"
+  ]
+}
