@@ -9,16 +9,14 @@
 //
 //=============================================================================
 
-
 export default class RwtShadowbox extends HTMLElement {
 
-	static nextID = 0;
-	
 	constructor() {
 		super();
 				
 		// child elements
 		this.dialog = null;
+		this.caption = null
 		this.closeButton = null;
 		
 		Object.seal(this);
@@ -48,6 +46,8 @@ export default class RwtShadowbox extends HTMLElement {
 		this.identifyChildren();
 		
 		this.registerEventListeners();
+		
+		this.initializeCaption();
 	}
 
 	//-------------------------------------------------------------------------
@@ -85,7 +85,8 @@ export default class RwtShadowbox extends HTMLElement {
 	
 	//^ Identify this component's children
 	identifyChildren() {
-		this.dialog = this.shadowRoot.getElementById('favorite-dialog');
+		this.dialog = this.shadowRoot.getElementById('shadowbox-dialog');
+		this.caption = this.shadowRoot.getElementById('caption');
 		this.closeButton = this.shadowRoot.getElementById('close-button');
 	}
 	
@@ -101,6 +102,16 @@ export default class RwtShadowbox extends HTMLElement {
 		this.closeButton.addEventListener('click', this.onClickClose.bind(this));
 	}
 	
+	initializeCaption() {
+		if (this.hasAttribute('titlebar')) {
+			var title = this.getAttribute('titlebar');
+			this.caption.innerText = title;
+		}
+		else {
+			this.caption.innerText = "Shadowbox";
+		}
+	}
+
 	//-------------------------------------------------------------------------
 	// document events
 	//-------------------------------------------------------------------------
@@ -117,7 +128,7 @@ export default class RwtShadowbox extends HTMLElement {
 			this.hideDialog();
 			event.stopPropagation();
 		}
-		if (event.key == "F1") {
+		if (event.key == "F2") {
 			this.toggleDialog();
 			event.stopPropagation();
 		}

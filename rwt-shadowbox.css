@@ -37,14 +37,14 @@
 #shadowbox-dialog {
 	position: fixed;
 	bottom: 4rem;
-	right: 2rem;
+	left: 2rem;
 	width: var(--width);
 	max-width: 40rem;
 	min-width: 8rem;
 	height: var(--height);
 	max-height: 30rem;
 	min-height: 8rem;	
-	box-sizing: border-box;
+	color: var(--color);
 	background-color: var(--background);
 	border-width: 1px;
 	border-style: solid;
@@ -102,3 +102,6 @@
 	border: 1px solid var(--accent-background2);
 }
 
+::slotted(*) {
+	padding: 2rem;
+}
