@@ -20,6 +20,9 @@ export default class RwtShadowbox extends HTMLElement {
 		this.closeButton = null;
 		this.shortcutKey = null;
 		
+		// properties
+		this.collapseSender = null;
+
 		Object.seal(this);
 	}
 
@@ -106,10 +109,12 @@ export default class RwtShadowbox extends HTMLElement {
 		if (this.hasAttribute('titlebar')) {
 			var title = this.getAttribute('titlebar');
 			this.caption.innerText = title;
+			this.collapseSender = `RwtShadowbox ${title}`;
 		}
 		else {
 			this.caption.innerText = "Shadowbox";
-		}
+			this.collapseSender = 'RwtShadowbox';
+	}
 	}
 	
 	/// Get the user-specified shortcut key. This will be used to open the dialog.
@@ -146,14 +151,14 @@ export default class RwtShadowbox extends HTMLElement {
 
 	//^ Send an event to close/hide all other registered popups
 	collapseOtherPopups() {
-		var collapseEvent = new CustomEvent('collapse-popup', {detail: { sender: `RwtShadowbox ${this.caption}`}});
+		var collapseEvent = new CustomEvent('collapse-popup', {detail: { sender: this.collapseSender}});
 		document.dispatchEvent(collapseEvent);
 	}
 	
 	//^ Listen for an event on the document instructing this dialog to close/hide
 	//  But don't collapse this dialog, if it was the one that generated it
 	onCollapsePopup(event) {
-		if (event.detail.sender == `RwtShadowbox ${this.caption}`)
+		if (event.detail.sender == this.collapseSender)
 			return;
 		else
 			this.hideDialog();
