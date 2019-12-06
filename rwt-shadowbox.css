@@ -10,6 +10,7 @@
 =============================================================================*/
 
 :host {
+	--pure-white: #fff;
 	--white: #ccc;
 	--gray: #777;
 	--black: #333;
@@ -18,10 +19,13 @@
 	--pure-black: #000;
 	--js-blue: #76afe8;
 	--yellow: #ffffa4;
+	--red: #ff3d3d;
 	
 	--caption-bar-height: 1.5rem;
 
 	/* custom element variables */	
+	--bottom: 4rem;
+	--left: 2rem;
 	--width: 70vw;
 	--height: 50vh;
 	--color: var(--white);
@@ -36,8 +40,8 @@
 
 #shadowbox-dialog {
 	position: fixed;
-	bottom: 4rem;
-	left: 2rem;
+	bottom: var(--bottom);
+	left: var(--left);
 	width: var(--width);
 	max-width: 40rem;
 	min-width: 8rem;
@@ -95,8 +99,8 @@
 
 #close-button:hover,
 #close-button:visited:hover {
-	color: #fff; /*var(--accent-color1);*/
-	background-color: #ff3d3d; /*var(--accent-background3);*/
+	color: var(--pure-white);
+	background-color: var(--red);
 	border: 1px solid var(--accent-background2);
 }
 

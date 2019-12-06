@@ -146,14 +146,14 @@ export default class RwtShadowbox extends HTMLElement {
 
 	//^ Send an event to close/hide all other registered popups
 	collapseOtherPopups() {
-		var collapseEvent = new CustomEvent('collapse-popup', {detail: { sender: 'RwtShadowbox'}});
+		var collapseEvent = new CustomEvent('collapse-popup', {detail: { sender: `RwtShadowbox ${this.caption}`}});
 		document.dispatchEvent(collapseEvent);
 	}
 	
 	//^ Listen for an event on the document instructing this dialog to close/hide
 	//  But don't collapse this dialog, if it was the one that generated it
 	onCollapsePopup(event) {
-		if (event.detail.sender == 'RwtShadowbox')
+		if (event.detail.sender == `RwtShadowbox ${this.caption}`)
 			return;
 		else
 			this.hideDialog();
