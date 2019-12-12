@@ -18,6 +18,7 @@ export default class RwtShadowbox extends HTMLElement {
 		this.dialog = null;
 		this.caption = null
 		this.closeButton = null;
+		this.outerMargin = null;
 		
 		// properties
 		this.shortcutKey = null;
@@ -42,6 +43,12 @@ export default class RwtShadowbox extends HTMLElement {
 		if (styleElement == null)
 			return;
 
+		var documentFragment = await this.fetchInnerHTML();
+		if (documentFragment != null) {
+			var elOuterMargin = htmlFragment.getElementById('outer-margin');
+			elOuterMargin.appendChild(documentFragment);
+		}
+		
 		 // append the HTML and CSS to the custom element's shadow root
 		this.attachShadow({mode: 'open'});
 		this.shadowRoot.appendChild(htmlFragment); 
@@ -56,6 +63,30 @@ export default class RwtShadowbox extends HTMLElement {
 	//-------------------------------------------------------------------------
 	// initialization
 	//-------------------------------------------------------------------------
+
+	//^ Fetch the user-provided text from the file specified in
+	//  the custom element's sourceref attribute, which is a URL.
+	//  That file should contain valid HTML.
+	//
+	//< returns a document-fragment suitable for appending to the outer-margin element
+	//< returns null if the user has not specified a sourceref attribute or
+	//  if the server does not respond with 200 or 304
+	async fetchInnerHTML() {
+		if (this.hasAttribute('sourceref') == false)
+			return null;
+		
+		var sourceref = this.getAttribute('sourceref');
+
+		var response = await fetch(sourceref, {cache: "no-cache"});		// send conditional request to server with ETag and If-None-Match
+		if (response.status != 200 && response.status != 304)
+			return null;
+		var templateText = await response.text();
+		
+		// create a template and turn its content into a document fragment
+		var template = document.createElement('template');
+		template.innerHTML = templateText;
+		return template.content;
+	}
 
 	//^ Fetch the HTML template
 	//< returns a document-fragment suitable for appending to shadowRoot
@@ -91,6 +122,7 @@ export default class RwtShadowbox extends HTMLElement {
 		this.dialog = this.shadowRoot.getElementById('shadowbox-dialog');
 		this.caption = this.shadowRoot.getElementById('caption');
 		this.closeButton = this.shadowRoot.getElementById('close-button');
+		this.outerMargin = this.shadowRoot.getElementById('outer-margin');
 	}
 	
 	registerEventListeners() {
