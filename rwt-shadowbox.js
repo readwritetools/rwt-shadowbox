@@ -11,6 +11,9 @@
 
 export default class RwtShadowbox extends HTMLElement {
 
+	// The elementInstance is used to distinguish between multiple instances of this custom element
+	static elementInstance = 0;
+
 	constructor() {
 		super();
 				
@@ -22,7 +25,7 @@ export default class RwtShadowbox extends HTMLElement {
 		
 		// properties
 		this.shortcutKey = null;
-		this.collapseSender = null;
+		this.collapseSender = `RwtShadowbox ${RwtShadowbox.elementInstance}`;
 
 		Object.seal(this);
 	}
@@ -141,11 +144,9 @@ export default class RwtShadowbox extends HTMLElement {
 		if (this.hasAttribute('titlebar')) {
 			var title = this.getAttribute('titlebar');
 			this.caption.innerText = title;
-			this.collapseSender = `RwtShadowbox ${title}`;
 		}
 		else {
 			this.caption.innerText = "Shadowbox";
-			this.collapseSender = 'RwtShadowbox';
 		}
 	}
 	
@@ -186,7 +187,7 @@ export default class RwtShadowbox extends HTMLElement {
 
 	//^ Send an event to close/hide all other registered popups
 	collapseOtherPopups() {
-		var collapseEvent = new CustomEvent('collapse-popup', {detail: { sender: this.collapseSender}});
+		var collapseEvent = new CustomEvent('collapse-popup', {detail: { sender: this.collapseSender }});
 		document.dispatchEvent(collapseEvent);
 	}
 	
