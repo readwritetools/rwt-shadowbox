@@ -18,9 +18,9 @@ export default class RwtShadowbox extends HTMLElement {
 		this.dialog = null;
 		this.caption = null
 		this.closeButton = null;
-		this.shortcutKey = null;
 		
 		// properties
+		this.shortcutKey = null;
 		this.collapseSender = null;
 
 		Object.seal(this);
@@ -114,15 +114,17 @@ export default class RwtShadowbox extends HTMLElement {
 		else {
 			this.caption.innerText = "Shadowbox";
 			this.collapseSender = 'RwtShadowbox';
-	}
+		}
 	}
 	
-	/// Get the user-specified shortcut key. This will be used to open the dialog.
-	// Valid values are "F1", "F2", etc.
+	//^ Get the user-specified shortcut key. This will be used to open the dialog.
+	//  Valid values are "F1", "F2", etc., specified with the *shortcut attribute on the custom element
+	//  Default value is "F1"
 	initializeShortcutKey() {
-		if (this.hasAttribute('shortcut')) {
+		if (this.hasAttribute('shortcut'))
 			this.shortcutKey = this.getAttribute('shortcut');
-		}
+		else
+			this.shortcutKey = 'F1';
 	}
 	
 	//-------------------------------------------------------------------------
@@ -136,12 +138,13 @@ export default class RwtShadowbox extends HTMLElement {
 	}
 	
 	// close the dialog when user presses the ESC key
+	// toggle the dialog when user presses the assigned shortcutKey
 	onKeydownDocument(event) {		
 		if (event.key == "Escape") {
 			this.hideDialog();
 			event.stopPropagation();
 		}
-		// like "F1", 'F2", etc
+		// like 'F1', 'F2', etc
 		if (event.key == this.shortcutKey) {
 			this.toggleDialog();
 			event.stopPropagation();
