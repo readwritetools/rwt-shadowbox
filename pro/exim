@@ -18,6 +18,6 @@ template {
 recurse {
 	source '/palau/www/hub.readwritetools.com/components/ghfm/shadowbox.blue'
 	dest   '../readme.md' 
-	overwrite older
+	overwrite always
 	exec ghfm
 }
