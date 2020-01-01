@@ -116,11 +116,11 @@ it.
 <pre>
 <
 
-舃
+​
 
 rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue'  role=contentinfo ><
 
-舃
+​
 
 /rwt-shadowbox>
 </pre>
@@ -129,11 +129,11 @@ rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue'  role=con
 <pre>
 <
 
-舃
+​
 
 a id='info-button' title="Info (F1)">ℹ<
 
-舃
+​
 
 /a>
 </pre>
