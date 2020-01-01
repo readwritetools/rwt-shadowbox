@@ -106,22 +106,17 @@ it.
 <rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue'  role=contentinfo ></rwt-shadowbox>
 </pre>
 
-For scripting purposes, apply an `id` attribute.
 
-      Apply a `titlebar` attribute with the text you want to appear as a caption.
-
-      Optionally, apply a `shortcut` attribute with something like `F1`, `F2`, etc. for
-      hotkey access.
-
-      Optionally, apply a `sourceref` attribute with a reference to an HTML file
-      containing the dialog's text and any CSS it needs.
-
-      And for WAI-ARIA accessibility apply a `role=contentinfo` attribute.
-
-      For simple dialog boxes, the `sourceref` may be omitted and the text of the dialog
-      box may be slotted into the web component. Simply place the text directly
-      between the `<rwt-shadowbox>` and `</rwt-shadowbox>` tags.
-
+      1. For scripting purposes, apply an `id` attribute.
+      2. Apply a `titlebar` attribute with the text you want to appear as a caption.
+      3. Optionally, apply a `shortcut` attribute with something like `F1`, `F2`, etc. for
+         hotkey access.
+      4. Optionally, apply a `sourceref` attribute with a reference to an HTML file
+         containing the dialog's text and any CSS it needs.
+      5. And for WAI-ARIA accessibility apply a `role=contentinfo` attribute.
+      6. For simple dialog boxes, the `sourceref` may be omitted and the text of the dialog
+         box may be slotted into the web component. Simply place the text directly
+         between the `<rwt-shadowbox>` and `</rwt-shadowbox>` tags.
    3. Add a way for the visitor to show the dialog:
 <pre>
 <a id='info-button' title="Info (F1)">ℹ</a>
