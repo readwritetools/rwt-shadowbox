@@ -61,14 +61,14 @@ npm install rwt-shadowbox
 If you are a front-end Web developer with no prior experience with NPM, follow
 these general steps:
 
-   1. Install <a href='https://nodejs.org'>Node.js/NPM</a>
+   * Install <a href='https://nodejs.org'>Node.js/NPM</a>
 on your development computer.
-   2. Create a `package.json` file in the root of your web project using the command:
+   * Create a `package.json` file in the root of your web project using the command:
 <pre>
 npm init
 </pre>
 
-   3. Download and install the web component using the command:
+   * Download and install the web component using the command:
 <pre>
 npm install rwt-shadowbox
 </pre>
@@ -82,8 +82,8 @@ does not need them.
 
 If you are more comfortable using Github for installation, follow these steps:
 
-   1. Create a directory `node_modules` in the root of your web project.
-   2. Clone the <span>rwt-shadowbox</span> web component into it using the
+   * Create a directory `node_modules` in the root of your web project.
+   * Clone the <span>rwt-shadowbox</span> web component into it using the
       command:
 <pre>
 git clone https://github.com/readwritetools/rwt-shadowbox.git
@@ -95,12 +95,12 @@ git clone https://github.com/readwritetools/rwt-shadowbox.git
 After installation, you need to add four things to your HTML page to make use of
 it.
 
-   1. Add a `script` tag to load the component's `rwt-shadowbox.js` file:
+   * Add a `script` tag to load the component's `rwt-shadowbox.js` file:
 <pre>
 <script src='/node_modules/rwt-shadowbox/rwt-shadowbox.js' type=module></script>             
 </pre>
 
-   2. Add the component tag somewhere on the page.
+   * Add the component tag somewhere on the page.
 
       * For scripting purposes, apply an `id` attribute.
       * Apply a `titlebar` attribute with the text you want to appear as a caption.
@@ -116,12 +116,12 @@ it.
 < rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue' role=contentinfo >< /rwt-shadowbox>
 </pre>
 
-   3. Add a way for the visitor to show the dialog:
+   * Add a way for the visitor to show the dialog:
 <pre>
 < a id='info-button' title="Info (F1)">ℹ< /a>
 </pre>
 
-   4. Add a listener to respond to the click event:
+   * Add a listener to respond to the click event:
 <pre>
 <script type=module>
     document.getElementById('info-button').addEventListener('click', (e) => {
