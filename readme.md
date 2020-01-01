@@ -17,7 +17,7 @@
 
 
 <address>
-<img src='/img/rwtools.png' width='1.8rem' /> by <a href='https://readwritetools.com' title='Read Write Tools'>Read Write Tools</a> <time datetime=2019-12-10>Dec 10, 2019</time></address>
+<img src='/img/rwtools.png' width=80 /> by <a href='https://readwritetools.com' title='Read Write Tools'>Read Write Tools</a> <time datetime=2019-12-10>Dec 10, 2019</time></address>
 
 
 
@@ -119,7 +119,15 @@ it.
 
    3. Add a way for the visitor to show the dialog:
 <pre>
-< a id='info-button' title="Info (F1)">ℹ</ a>
+<
+
+򂀺
+
+ id='info-button' title="Info (F1)">ℹ<
+
+舃
+
+/a>
 </pre>
 
    4. Add a listener to respond to the click event:
