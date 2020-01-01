@@ -97,7 +97,7 @@ it.
 
    * Add a `script` tag to load the component's `rwt-shadowbox.js` file:
 <pre>
-<script src='/node_modules/rwt-shadowbox/rwt-shadowbox.js' type=module></script>             
+< script src='/node_modules/rwt-shadowbox/rwt-shadowbox.js' type=module>< /script>             
 </pre>
 
    * Add the component tag somewhere on the page.
@@ -123,11 +123,11 @@ it.
 
    * Add a listener to respond to the click event:
 <pre>
-<script type=module>
+< script type=module>
     document.getElementById('info-button').addEventListener('click', (e) => {
         document.getElementById('info').toggleDialog(e);
     });
-</script>
+< /script>
 </pre>
 
 
