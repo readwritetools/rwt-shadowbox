@@ -74,10 +74,9 @@ npm install rwt-shadowbox
 </pre>
 
 
-<small>
 Important note: This web component uses Node.js and NPM and `package.json` as a
 convenient *distribution and installation* mechanism. The web component itself
-does not need them.</small>
+does not need them.
 
 #### Installation using Github
 
@@ -102,6 +101,10 @@ it.
 </pre>
 
    2. Add the component tag somewhere on the page.
+<pre>
+< rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue' role=contentinfo >< /rwt-shadowbox>
+</pre>
+
 
       * For scripting purposes, apply an `id` attribute.
       * Apply a `titlebar` attribute with the text you want to appear as a caption.
@@ -113,10 +116,6 @@ it.
       * For simple dialog boxes, the `sourceref` may be omitted and the text of the dialog
          box may be slotted into the web component. Simply place the text directly
          between the `<rwt-shadowbox>` and `</rwt-shadowbox>` tags.
-<pre>
-< rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue' role=contentinfo >< /rwt-shadowbox>
-</pre>
-
    3. Add a way for the visitor to show the dialog:
 <pre>
 < a id='info-button' title="Info (F1)">ℹ< /a>
