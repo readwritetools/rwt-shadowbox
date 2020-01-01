@@ -13,5 +13,5 @@
 run {
 	sh renata exim				// Convert .blue to .md
 	sh renata deploy			// Check for pending work, commit, bump version, push repo
-	sh publish					// publish to NPM
+	sh renata publish			// publish to NPM
 }

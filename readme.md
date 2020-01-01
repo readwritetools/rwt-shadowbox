@@ -54,9 +54,9 @@ installation are done with either NPM or via Github.
 If you are familiar with Node.js and the `package.json` file, you'll be
 comfortable installing the component just using this command:
 
-<pre>
+```bash
 npm install rwt-shadowbox
-</pre>
+```
 
 If you are a front-end Web developer with no prior experience with NPM, follow
 these general steps:
@@ -64,14 +64,14 @@ these general steps:
    * Install <a href='https://nodejs.org'>Node.js/NPM</a>
 on your development computer.
    * Create a `package.json` file in the root of your web project using the command:
-<pre>
+```bash
 npm init
-</pre>
+```
 
    * Download and install the web component using the command:
-<pre>
+```bash
 npm install rwt-shadowbox
-</pre>
+```
 
 
 Important note: This web component uses Node.js and NPM and `package.json` as a
@@ -85,9 +85,9 @@ If you are more comfortable using Github for installation, follow these steps:
    * Create a directory `node_modules` in the root of your web project.
    * Clone the <span>rwt-shadowbox</span> web component into it using the
       command:
-<pre>
+```bash
 git clone https://github.com/readwritetools/rwt-shadowbox.git
-</pre>
+```
 
 
 ### Using the web component
@@ -96,9 +96,9 @@ After installation, you need to add four things to your HTML page to make use of
 it.
 
    * Add a `script` tag to load the component's `rwt-shadowbox.js` file:
-<pre>
-< script src='/node_modules/rwt-shadowbox/rwt-shadowbox.js' type=module>< /script>             
-</pre>
+```html
+<script src='/node_modules/rwt-shadowbox/rwt-shadowbox.js' type=module></script>             
+```
 
    * Add the component tag somewhere on the page.
 
@@ -112,23 +112,23 @@ it.
       * For simple dialog boxes, the `sourceref` may be omitted and the text of the dialog
          box may be slotted into the web component. Simply place the text directly
          between the `<rwt-shadowbox>` and `</rwt-shadowbox>` tags.
-<pre>
-< rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue' role=contentinfo >< /rwt-shadowbox>
-</pre>
+```html
+<rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue' role=contentinfo ></rwt-shadowbox>
+```
 
    * Add a way for the visitor to show the dialog:
-<pre>
-< a id='info-button' title="Info (F1)">ℹ< /a>
-</pre>
+```html
+<a id='info-button' title="Info (F1)">ℹ</a>
+```
 
    * Add a listener to respond to the click event:
-<pre>
-< script type=module>
+```html
+<script type=module>
     document.getElementById('info-button').addEventListener('click', (e) => {
         document.getElementById('info').toggleDialog(e);
     });
-< /script>
-</pre>
+</script>
+```
 
 
 ### Customization
@@ -139,21 +139,21 @@ The dialog is absolutely positioned towards the bottom left of the viewport. Its
 size may be overridden using CSS by defining new values for the size and
 position variables.
 
-<pre>
+```css
 rwt-shadowbox#info {
     --bottom: 4rem;
     --left: 2rem;
     --width: 80vw;
     --height: 85vh;
 }
-</pre>
+```
 
 #### Dialog color scheme
 
 The default color palette for the dialog uses a dark mode theme. You can use CSS
 to override the variables' defaults:
 
-<pre>
+```css
 rwt-shadowbox#info {
     --color: var(--white);
     --accent-color1: var(--yellow);
@@ -164,7 +164,7 @@ rwt-shadowbox#info {
     --accent-background3: var(--nav-black);
     --accent-background4: var(--black);
 }
-</pre>
+```
 
 ### Event interface
 
