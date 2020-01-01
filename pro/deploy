@@ -19,8 +19,6 @@ run {
 
 // ---------- bump version and push repo to origin ---------- 
 run {
-	sh git add ../dist/.
-	sh git commit -m "deploy"
 	sh npm version patch
 	sh git push origin master
 	sh git push origin master --tags
