@@ -1,6 +1,6 @@
 {
   "name": "rwt-shadowbox",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Popup box with titlebar and slotted contents, a W3C standard Web Component",
   "author": "Read Write Tools",
   "license": "MIT",
