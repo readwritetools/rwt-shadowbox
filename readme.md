@@ -4,7 +4,8 @@
 
 
 
-<a href='https://hub.readwritetools.com/components.blue'><img src='/img/rwt-component.png' width=80 align=right /></a>
+<a href='https://hub.readwritetools.com/components.blue'><img src='/img/rwt-component.png'>!option --emit=ghfm</img> *align=right</a>
+>>
 
 
 
@@ -193,7 +194,7 @@ anywhere outside the dialog box, it closes itself.
 The <span>rwt-shadowbox</span> web component is licensed under the MIT
 License.
 
-<img src='/img/blue-seal-mit.png' width=6.5rem align=right />
+<img src='/img/blue-seal-mit.png' width=80 align=right />
 
 <details>
 	<summary>MIT License</summary>
