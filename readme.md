@@ -101,28 +101,27 @@ it.
 <script src='/node_modules/rwt-shadowbox/rwt-shadowbox.js' type=module></script>             
 </pre>
 
-   2. <span>Add the component tag
-      somewhere on the page.</span>
+   2. Add the component tag somewhere on the page.
 <pre>
 <rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue'  role=contentinfo ></rwt-shadowbox>
 </pre>
 
-      <span>For scripting purposes,
-      apply an `id` attribute.</span>
-      <span>
-Apply a `titlebar` attribute with the text you want to appear as a caption.</span>
-      <span>
-Optionally, apply a `shortcut` attribute with something like `F1`, `F2`, etc. for
-      hotkey access.</span>
-      <span>
-Optionally, apply a `sourceref` attribute with a reference to an HTML file
-      containing the dialog's text and any CSS it needs.</span>
-      <span>And
-      for WAI-ARIA accessibility apply a `role=contentinfo` attribute.</span>
-      <span>
-For simple dialog boxes, the `sourceref` may be omitted and the text of the dialog
+For scripting purposes, apply an `id` attribute.
+
+      Apply a `titlebar` attribute with the text you want to appear as a caption.
+
+      Optionally, apply a `shortcut` attribute with something like `F1`, `F2`, etc. for
+      hotkey access.
+
+      Optionally, apply a `sourceref` attribute with a reference to an HTML file
+      containing the dialog's text and any CSS it needs.
+
+      And for WAI-ARIA accessibility apply a `role=contentinfo` attribute.
+
+      For simple dialog boxes, the `sourceref` may be omitted and the text of the dialog
       box may be slotted into the web component. Simply place the text directly
-      between the `<rwt-shadowbox>` and `</rwt-shadowbox>` tags.</span>
+      between the `<rwt-shadowbox>` and `</rwt-shadowbox>` tags.
+
    3. Add a way for the visitor to show the dialog:
 <pre>
 <a id='info-button' title="Info (F1)">ℹ</a>
