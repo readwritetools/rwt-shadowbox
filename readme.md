@@ -193,7 +193,7 @@ anywhere outside the dialog box, it closes itself.
 The <span>rwt-shadowbox</span> web component is licensed under the MIT
 License.
 
-<img src='/img/blue-seal-mit.png' />
+<img src='/img/blue-seal-mit.png' width=8rem />
 
 <details>
 	<summary>MIT License</summary>
