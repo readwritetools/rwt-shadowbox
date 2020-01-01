@@ -4,9 +4,6 @@
 
 
 
-<a href='https://hub.readwritetools.com/components.blue'><img src='/img/rwt-component.png'>!option --emit=ghfm</img> *align=right</a>
->>
-
 
 
 <figure>
@@ -110,14 +107,18 @@ it.
 <rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue'  role=contentinfo ></rwt-shadowbox>
 </pre>
 
-
-      * For scripting purposes, apply an `id` attribute.
-      * Apply a `titlebar` attribute with the text you want to appear as a caption.
-      * Optionally, apply a `shortcut` attribute with something like `F1`, `F2`, etc. for
-         hotkey access.
-      * Optionally, apply a `sourceref` attribute with a reference to an HTML file
-         containing the dialog's text and any CSS it needs.
-      * And for WAI-ARIA accessibility apply a `role=contentinfo` attribute.
+      <span>For scripting purposes,
+      apply an `id` attribute.</span>
+      <span>
+Apply a `titlebar` attribute with the text you want to appear as a caption.</span>
+      <span>
+Optionally, apply a `shortcut` attribute with something like `F1`, `F2`, etc. for
+      hotkey access.</span>
+      <span>
+Optionally, apply a `sourceref` attribute with a reference to an HTML file
+      containing the dialog's text and any CSS it needs.</span>
+      <span>And
+      for WAI-ARIA accessibility apply a `role=contentinfo` attribute.</span>
       <span>
 For simple dialog boxes, the `sourceref` may be omitted and the text of the dialog
       box may be slotted into the web component. Simply place the text directly
@@ -204,4 +205,3 @@ License.
 	<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </details>
 
-<p align=center><a href='https://readwritetools.com'><img src='/img/rwtools.png' width=80 /></a></p>
