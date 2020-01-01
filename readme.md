@@ -102,10 +102,6 @@ it.
 </pre>
 
    2. Add the component tag somewhere on the page.
-<pre>
-<rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue'  role=contentinfo ></rwt-shadowbox>
-</pre>
-
 
       1. For scripting purposes, apply an `id` attribute.
       2. Apply a `titlebar` attribute with the text you want to appear as a caption.
@@ -117,6 +113,10 @@ it.
       6. For simple dialog boxes, the `sourceref` may be omitted and the text of the dialog
          box may be slotted into the web component. Simply place the text directly
          between the `<rwt-shadowbox>` and `</rwt-shadowbox>` tags.
+<pre>
+<rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue'  role=contentinfo ></rwt-shadowbox>
+</pre>
+
    3. Add a way for the visitor to show the dialog:
 <pre>
 <a id='info-button' title="Info (F1)">ℹ</a>
