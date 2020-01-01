@@ -114,28 +114,12 @@ it.
          box may be slotted into the web component. Simply place the text directly
          between the `<rwt-shadowbox>` and `</rwt-shadowbox>` tags.
 <pre>
-<
-
- 
-
-rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue'  role=contentinfo ><
-
- 
-
-/rwt-shadowbox>
+< rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue' role=contentinfo >< /rwt-shadowbox>
 </pre>
 
    3. Add a way for the visitor to show the dialog:
 <pre>
-<
-
- 
-
-a id='info-button' title="Info (F1)">ℹ<
-
- 
-
-/a>
+< a id='info-button' title="Info (F1)">ℹ< /a>
 </pre>
 
    4. Add a listener to respond to the click event:
