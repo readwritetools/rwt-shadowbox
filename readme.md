@@ -6,14 +6,10 @@
 
 <a href='https://hub.readwritetools.com/components.blue'><img src='/img/rwt-component.png' width=80 align=right /></a>
 
-###### A classy dialog box
-
-# Shadowbox
-
 
 
 <figure>
-	<img src='/img/components/shadowbox/shadowbox-unsplash-martino-pietropoli.jpg' />
+	<img src='/img/components/shadowbox/shadowbox-unsplash-martino-pietropoli.jpg' width='100%' />
 	<figcaption></figcaption>
 </figure>
 
@@ -23,7 +19,7 @@
 
 
 <address>
-<img src='/img/rwtools.png' /> by <a href='https://readwritetools.com' title='Read Write Tools'>Read Write Tools</a> <time datetime=2019-12-10>Dec 10, 2019</time></address>
+<img src='/img/rwtools.png' width='1.8rem' /> by <a href='https://readwritetools.com' title='Read Write Tools'>Read Write Tools</a> <time datetime=2019-12-10>Dec 10, 2019</time></address>
 
 
 
