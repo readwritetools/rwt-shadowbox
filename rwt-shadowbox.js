@@ -25,6 +25,7 @@ export default class RwtShadowbox extends HTMLElement {
 		
 		// properties
 		this.shortcutKey = null;
+		RwtShadowbox.elementInstance++;
 		this.collapseSender = `RwtShadowbox ${RwtShadowbox.elementInstance}`;
 
 		Object.seal(this);
