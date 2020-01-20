@@ -141,10 +141,10 @@ position variables.
 
 ```css
 rwt-shadowbox#info {
-    --bottom: 4rem;
-    --left: 2rem;
-    --width: 80vw;
-    --height: 85vh;
+    --width: 70vw;
+    --height: 50vh;
+    --bottom: 1rem;
+    --left: 1rem;
 }
 ```
 
