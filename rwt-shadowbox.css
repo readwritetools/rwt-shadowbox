@@ -35,10 +35,10 @@
 	--accent-background4: var(--black);
 
 	/* custom element variables */	
-	--bottom: 4rem;
-	--left: 2rem;
 	--width: 70vw;
 	--height: 50vh;
+	--bottom: 1rem;
+	--left: 1rem;
 
 	/* calculated sizing */
 	--caption-bar-height: 1.5rem;
@@ -50,10 +50,8 @@
 	left: var(--left);
 	width: var(--width);
 	max-width: 40rem;
-	min-width: 8rem;
 	height: var(--height);
-	max-height: 30rem;
-	min-height: 8rem;	
+	max-height: 40rem;
 	color: var(--color);
 	background-color: var(--background);
 	border-width: 1px;
