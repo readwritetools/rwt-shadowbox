@@ -1,7 +1,7 @@
 !blue 2.0
 //=============================================================================
 //
-//  File:         /node_modules/rwt-shadowbox/rwt-favorites.blue
+//  File:         /node_modules/rwt-shadowbox/rwt-shadowbox.blue
 //  Language:     Blue-phrase
 //  Copyright:    Read Write Tools © 2019
 //  License:      MIT
@@ -14,7 +14,7 @@
 
 div #shadowbox-dialog ^display:none {
 	div #caption-bar {
-		p #caption Favorites
+		p #caption Shadowbox
 		button #close-button ✕
 	}
 	div #outer-margin {
