@@ -35,8 +35,14 @@
 	--accent-background4: var(--black);
 
 	/* custom element variables */	
-	--width: 70vw;
-	--height: 50vh;
+	--min-width: 10rem;
+	--optimal-width: 70vw;
+	--max-width: 40rem;
+	
+	--min-height: 10rem;
+	--optimal-height: 50vh;
+	--max-height: 40rem;
+	
 	--bottom: 1rem;
 	--left: 1rem;
 
@@ -48,10 +54,15 @@
 	position: fixed;
 	bottom: var(--bottom);
 	left: var(--left);
-	width: var(--width);
-	max-width: 40rem;
-	height: var(--height);
-	max-height: 40rem;
+	
+	min-width: var(--min-width);
+	width: var(--optimal-width);
+	max-width: var(--max-width);
+	
+	min-height: var(--min-height);
+	height: var(--optimal-height);
+	max-height: var(--max-height);
+	
 	color: var(--color);
 	background-color: var(--background);
 	border-width: 1px;
