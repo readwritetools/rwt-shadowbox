@@ -231,6 +231,7 @@ export default class RwtShadowbox extends HTMLElement {
 			this.showDialog();
 		else
 			this.hideDialog();
+		event.stopPropagation();
 	}
 	
 	// retrieve and show
