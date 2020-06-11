@@ -27,9 +27,9 @@ export default class RwtShadowbox extends HTMLElement {
 		this.outerMargin = null;
 		
 		// properties
-		this.instance = RwtShadowbox.elementInstance++;
 		this.shortcutKey = null;
-		this.collapseSender = `RwtShadowbox ${RwtShadowbox.elementInstance}`;
+		this.instance = RwtShadowbox.elementInstance++;
+		this.collapseSender = `RwtShadowbox ${this.instance}`;
 
 		Object.seal(this);
 	}
@@ -79,8 +79,9 @@ export default class RwtShadowbox extends HTMLElement {
 	// and resolve the promise with a DocumentFragment.
 	getHtmlFragment() {
 		return new Promise(async (resolve, reject) => {
+			var htmlTemplateReady = `RwtShadowbox-html-template-ready`;
 			
-			document.addEventListener('html-template-ready', () => {
+			document.addEventListener(htmlTemplateReady, () => {
 				var template = document.createElement('template');
 				template.innerHTML = RwtShadowbox.htmlText;
 				resolve(template.content);
@@ -93,10 +94,10 @@ export default class RwtShadowbox extends HTMLElement {
 					return;
 				}
 				RwtShadowbox.htmlText = await response.text();
-				document.dispatchEvent(new Event('html-template-ready'));
+				document.dispatchEvent(new Event(htmlTemplateReady));
 			}
 			else if (RwtShadowbox.htmlText != null) {
-				document.dispatchEvent(new Event('html-template-ready'));
+				document.dispatchEvent(new Event(htmlTemplateReady));
 			}
 		});
 	}
@@ -106,8 +107,9 @@ export default class RwtShadowbox extends HTMLElement {
 	// and resolve the promise with that element.
 	getCssStyleElement() {
 		return new Promise(async (resolve, reject) => {
+			var cssTextReady = `RwtShadowbox-css-text-ready`;
 
-			document.addEventListener('css-text-ready', () => {
+			document.addEventListener(cssTextReady, () => {
 				var styleElement = document.createElement('style');
 				styleElement.innerHTML = RwtShadowbox.cssText;
 				resolve(styleElement);
@@ -120,10 +122,10 @@ export default class RwtShadowbox extends HTMLElement {
 					return;
 				}
 				RwtShadowbox.cssText = await response.text();
-				document.dispatchEvent(new Event('css-text-ready'));
+				document.dispatchEvent(new Event(cssTextReady));
 			}
 			else if (RwtShadowbox.cssText != null) {
-				document.dispatchEvent(new Event('css-text-ready'));
+				document.dispatchEvent(new Event(cssTextReady));
 			}
 		});
 	}
@@ -216,15 +218,14 @@ export default class RwtShadowbox extends HTMLElement {
 
 	//^ Send an event to close/hide all other registered popups
 	collapseOtherPopups() {
-		var collapseSender = this.collapseSender;
-		var collapseEvent = new CustomEvent('collapse-popup', {detail: { collapseSender }});
+		var collapseEvent = new CustomEvent('collapse-popup', {detail: this.collapseSender});
 		document.dispatchEvent(collapseEvent);
 	}
 	
 	//^ Listen for an event on the document instructing this dialog to close/hide
 	//  But don't collapse this dialog, if it was the one that generated it
 	onCollapsePopup(event) {
-		if (event.detail.sender == this.collapseSender)
+		if (event.detail == this.collapseSender)
 			return;
 		else
 			this.hideDialog();
