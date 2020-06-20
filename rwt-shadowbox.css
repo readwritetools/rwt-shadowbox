@@ -45,6 +45,7 @@
 	
 	--bottom: 1rem;
 	--left: 1rem;
+	--z-index: 1;
 
 	/* calculated sizing */
 	--caption-bar-height: 1.5rem;
@@ -69,7 +70,7 @@
 	border-style: solid;
 	border-color: var(--gray) var(--accent-background2) var(--accent-background2) var(--gray);
 	box-shadow: -2px -2px 2px var(--accent-background2), 5px 5px 8px var(--accent-background2);
-	z-index: 1;
+	z-index: var(--z-index);
 	cursor: default;
 }
 
