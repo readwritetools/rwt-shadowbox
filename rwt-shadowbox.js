@@ -9,28 +9,36 @@
 //
 //=============================================================================
 
-export default class RwtShadowbox extends HTMLElement {
+const Static = {
+	componentName:    'rwt-shadowbox',
+	elementInstance:  1,
+	htmlURL:          '/node_modules/rwt-shadowbox/rwt-shadowbox.blue',
+	cssURL:           '/node_modules/rwt-shadowbox/rwt-shadowbox.css',
+	htmlText:         null,
+	cssText:          null
+};
 
-	static elementInstance = 1;
-	static htmlURL  = '/node_modules/rwt-shadowbox/rwt-shadowbox.blue';
-	static cssURL   = '/node_modules/rwt-shadowbox/rwt-shadowbox.css';
-	static htmlText = null;
-	static cssText  = null;
+Object.seal(Static);
+
+export default class RwtShadowbox extends HTMLElement {
 
 	constructor() {
 		super();
 				
+		// guardrails
+		this.instance = Static.elementInstance++;
+		this.isComponentLoaded = false;
+		
+		// properties
+		this.collapseSender = `${Static.componentName} ${this.instance}`;
+		this.shortcutKey = null;
+		
 		// child elements
 		this.dialog = null;
 		this.caption = null
 		this.closeButton = null;
 		this.outerMargin = null;
 		
-		// properties
-		this.shortcutKey = null;
-		this.instance = RwtShadowbox.elementInstance++;
-		this.collapseSender = `RwtShadowbox ${this.instance}`;
-
 		Object.seal(this);
 	}
 
@@ -59,6 +67,7 @@ export default class RwtShadowbox extends HTMLElement {
 			this.registerEventListeners();
 			this.initializeCaption();
 			this.initializeShortcutKey();
+			this.sendComponentLoaded();
 		}
 		catch (err) {
 			console.log(err.message);
@@ -79,24 +88,24 @@ export default class RwtShadowbox extends HTMLElement {
 	// and resolve the promise with a DocumentFragment.
 	getHtmlFragment() {
 		return new Promise(async (resolve, reject) => {
-			var htmlTemplateReady = `RwtShadowbox-html-template-ready`;
+			var htmlTemplateReady = `${Static.componentName}-html-template-ready`;
 			
 			document.addEventListener(htmlTemplateReady, () => {
 				var template = document.createElement('template');
-				template.innerHTML = RwtShadowbox.htmlText;
+				template.innerHTML = Static.htmlText;
 				resolve(template.content);
 			});
 			
 			if (this.instance == 1) {
-				var response = await fetch(RwtShadowbox.htmlURL, {cache: "no-cache", referrerPolicy: 'no-referrer'});
+				var response = await fetch(Static.htmlURL, {cache: "no-cache", referrerPolicy: 'no-referrer'});
 				if (response.status != 200 && response.status != 304) {
-					reject(new Error(`Request for ${RwtShadowbox.htmlURL} returned with ${response.status}`));
+					reject(new Error(`Request for ${Static.htmlURL} returned with ${response.status}`));
 					return;
 				}
-				RwtShadowbox.htmlText = await response.text();
+				Static.htmlText = await response.text();
 				document.dispatchEvent(new Event(htmlTemplateReady));
 			}
-			else if (RwtShadowbox.htmlText != null) {
+			else if (Static.htmlText != null) {
 				document.dispatchEvent(new Event(htmlTemplateReady));
 			}
 		});
@@ -107,24 +116,24 @@ export default class RwtShadowbox extends HTMLElement {
 	// and resolve the promise with that element.
 	getCssStyleElement() {
 		return new Promise(async (resolve, reject) => {
-			var cssTextReady = `RwtShadowbox-css-text-ready`;
+			var cssTextReady = `${Static.componentName}-css-text-ready`;
 
 			document.addEventListener(cssTextReady, () => {
 				var styleElement = document.createElement('style');
-				styleElement.innerHTML = RwtShadowbox.cssText;
+				styleElement.innerHTML = Static.cssText;
 				resolve(styleElement);
 			});
 			
 			if (this.instance == 1) {
-				var response = await fetch(RwtShadowbox.cssURL, {cache: "no-cache", referrerPolicy: 'no-referrer'});
+				var response = await fetch(Static.cssURL, {cache: "no-cache", referrerPolicy: 'no-referrer'});
 				if (response.status != 200 && response.status != 304) {
-					reject(new Error(`Request for ${RwtShadowbox.cssURL} returned with ${response.status}`));
+					reject(new Error(`Request for ${Static.cssURL} returned with ${response.status}`));
 					return;
 				}
-				RwtShadowbox.cssText = await response.text();
+				Static.cssText = await response.text();
 				document.dispatchEvent(new Event(cssTextReady));
 			}
-			else if (RwtShadowbox.cssText != null) {
+			else if (Static.cssText != null) {
 				document.dispatchEvent(new Event(cssTextReady));
 			}
 		});
@@ -189,6 +198,22 @@ export default class RwtShadowbox extends HTMLElement {
 	initializeShortcutKey() {
 		if (this.hasAttribute('shortcut'))
 			this.shortcutKey = this.getAttribute('shortcut');
+	}
+	
+	//^ Inform the document's custom element that it is ready for programmatic use 
+	sendComponentLoaded() {
+		this.isComponentLoaded = true;
+		this.dispatchEvent(new Event('component-loaded', {bubbles: true}));
+	}
+
+	//^ A Promise that resolves when the component is loaded
+	waitOnLoading() {
+		return new Promise((resolve) => {
+			if (this.isComponentLoaded == true)
+				resolve();
+			else
+				this.addEventListener('component-loaded', resolve);
+		});
 	}
 	
 	//-------------------------------------------------------------------------
@@ -279,4 +304,4 @@ export default class RwtShadowbox extends HTMLElement {
 	}
 }
 
-window.customElements.define('rwt-shadowbox', RwtShadowbox);
+window.customElements.define(Static.componentName, RwtShadowbox);
