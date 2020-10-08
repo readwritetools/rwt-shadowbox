@@ -6,10 +6,16 @@
 
 
 
+
+
+
+
 <figure>
 	<img src='/img/components/shadowbox/shadowbox-unsplash-martino-pietropoli.jpg' width='100%' />
 	<figcaption></figcaption>
 </figure>
+
+##### Open Source DOM Component
 
 # Shadowbox
 
@@ -23,7 +29,7 @@
 
 <table>
 	<tr><th>Abstract</th></tr>
-	<tr><td>The <span class=product>rwt-shadowbox</span> web component is a popup dialog box with titlebar caption, close button, shortcut key access, event interface, and either slotted or templated content.</td></tr>
+	<tr><td>The <span class=product>rwt-shadowbox</span> DOM component is a popup dialog box with titlebar caption, close button, shortcut key access, event interface, and either slotted or templated content.</td></tr>
 </table>
 
 ### Motivation
@@ -33,7 +39,7 @@ HTML5 has a special `dialog` tag for that very purpose. Unfortunately, the HTML
 dialog tag does not provide any "standard" behavior for how it should appear.
 Nor does it provide a convenient way for the user to dismiss it.
 
-The <span>rwt-shadowbox</span> web component has several features which
+The <span>rwt-shadowbox</span> DOM component has several features which
 overcome those limitations, and make for a more pleasant user experience.
 
    * The dialog box has a titlebar with caption and close button.
@@ -43,9 +49,17 @@ overcome those limitations, and make for a more pleasant user experience.
    * A keyboard listener is provided to allow a shortcut key to open/close the
       dialog.
 
+#### In the wild
+
+To see an example of this component in use, visit the <a href='https://readwritetools.com/'>READ WRITE TOOLS</a>
+website and press <kbd>F2</kbd> "Info" or <kbd>F3</kbd> "Rights". To understand
+what's going on under the hood, use the browser's inspector to view the HTML
+source code and network activity, and follow along as you read this
+documentation.
+
 #### Prerequisites
 
-The <span>rwt-shadowbox</span> web component works in any browser that
+The <span>rwt-shadowbox</span> DOM component works in any browser that
 supports modern W3C standards. Templates are written using <span>BLUE</span><span>
 PHRASE</span> notation, which can be compiled into HTML using the free <a href='https://hub.readwritetools.com/desktop/rwview.blue'>Read Write View</a>
 desktop app. It has no other prerequisites. Distribution and installation are
@@ -70,14 +84,14 @@ on your development computer.
 npm init
 ```
 
-   * Download and install the web component using the command:
+   * Download and install the DOM component using the command:
 ```bash
 npm install rwt-shadowbox
 ```
 
 
-Important note: This web component uses Node.js and NPM and `package.json` as a
-convenient *distribution and installation* mechanism. The web component itself
+Important note: This DOM component uses Node.js and NPM and `package.json` as a
+convenient *distribution and installation* mechanism. The DOM component itself
 does not need them.
 
 #### Installation using Github
@@ -85,14 +99,14 @@ does not need them.
 If you are more comfortable using Github for installation, follow these steps:
 
    * Create a directory `node_modules` in the root of your web project.
-   * Clone the <span>rwt-shadowbox</span> web component into it using the
+   * Clone the <span>rwt-shadowbox</span> DOM component into it using the
       command:
 ```bash
 git clone https://github.com/readwritetools/rwt-shadowbox.git
 ```
 
 
-### Using the web component
+### Using the DOM component
 
 After installation, you need to add four things to your HTML page to make use of
 it.
@@ -112,7 +126,7 @@ it.
          containing the dialog's text and any CSS it needs.
       * And for WAI-ARIA accessibility apply a `role=contentinfo` attribute.
       * For simple dialog boxes, the `sourceref` may be omitted and the text of the dialog
-         box may be slotted into the web component. Simply place the text directly
+         box may be slotted into the DOM component. Simply place the text directly
          between the `<rwt-shadowbox>` and `</rwt-shadowbox>` tags.
 ```html
 <rwt-shadowbox id=info titlebar=Info shortcut=F1 sourceref='/info.blue' role=contentinfo ></rwt-shadowbox>
@@ -200,9 +214,22 @@ The dialog box can be controlled with its event interface.
 	<dd>The component listens on DOM <code>document</code> for <code>click</code> messages. When the user clicks anywhere outside the dialog box, it closes itself.</dd>
 </dl>
 
+---
+
+### Reference
+
+
+<table>
+	<tr><td><img src='/img/read-write-hub.png' alt='DOM components logo' width=40 /></td>	<td>Documentation</td> 		<td><a href='https://hub.readwritetools.com/components/shadowbox.blue'>READ WRITE HUB</a></td></tr>
+	<tr><td><img src='/img/git.png' alt='git logo' width=40 /></td>	<td>Source code</td> 			<td><a href='https://github.com/readwritetools/rwt-shadowbox'>github</a></td></tr>
+	<tr><td><img src='/img/dom-components.png' alt='DOM components logo' width=40 /></td>	<td>Component catalog</td> 	<td><a href='https://domcomponents.com/shadowbox.blue'>DOM COMPONENTS</a></td></tr>
+	<tr><td><img src='/img/npm.png' alt='npm logo' width=40 /></td>	<td>Package installation</td> <td><a href='https://www.npmjs.com/package/rwt-shadowbox'>npm</a></td></tr>
+	<tr><td><img src='/img/read-write-stack.png' alt='Read Write Stack logo' width=40 /></td>	<td>Publication venue</td>	<td><a href='https://readwritestack.com/components/shadowbox.blue'>READ WRITE STACK</a></td></tr>
+</table>
+
 ### License
 
-The <span>rwt-shadowbox</span> web component is licensed under the MIT
+The <span>rwt-shadowbox</span> DOM component is licensed under the MIT
 License.
 
 <img src='/img/blue-seal-mit.png' width=80 align=right />
@@ -214,13 +241,4 @@ License.
 	<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 	<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </details>
-
-### Availability
-
-
-<table>
-	<tr><td>Source code</td> 			<td><a href='https://github.com/readwritetools/rwt-shadowbox'>github</a></td></tr>
-	<tr><td>Package installation</td> <td><a href='https://www.npmjs.com/package/rwt-shadowbox'>NPM</a></td></tr>
-	<tr><td>Documentation</td> 		<td><a href='https://hub.readwritetools.com/components/shadowbox.blue'>Read Write Hub</a></td></tr>
-</table>
 
