@@ -167,6 +167,7 @@ rwt-shadowbox#info {
 
     --bottom: 1rem;
     --left: 1rem;
+    --z-index: 1;
 }
 ```
 
